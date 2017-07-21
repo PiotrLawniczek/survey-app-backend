@@ -1,5 +1,7 @@
 package pl.lawniczek.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,7 @@ public class Survey {
 
     private String title;
 
+    @JsonIgnoreProperties("answers")
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "survey")
     private List<Question> questions = new ArrayList<>();
 

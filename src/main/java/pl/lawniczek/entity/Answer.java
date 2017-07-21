@@ -1,5 +1,7 @@
 package pl.lawniczek.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 /**
@@ -14,6 +16,7 @@ public class Answer {
     @GeneratedValue
     private long id;
 
+    @JsonIgnore
     @ManyToOne
     private Question question;
 

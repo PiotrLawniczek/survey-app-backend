@@ -1,5 +1,8 @@
 package pl.lawniczek.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,11 +18,13 @@ public class Question {
     @GeneratedValue
     private long id;
 
+    @JsonIgnore
     @ManyToOne
     private Survey survey;
 
     private String questionDesc;
 
+    @JsonIgnoreProperties("questions")
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
     private List<Answer> answers = new ArrayList<>();
 

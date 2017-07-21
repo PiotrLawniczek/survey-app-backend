@@ -18,6 +18,7 @@ import java.util.List;
  */
 
 @RestController
+@RequestMapping("/surveys")
 public class SurveyController {
 
     private SurveyRepository surveyRepository;
@@ -38,10 +39,9 @@ public class SurveyController {
     public void addSurvey ( AddSurveyRequest addSurveyRequest){
         Survey survey = new Survey();
         survey.setTitle(addSurveyRequest.getTitle());
+       // survey.setQuestions(addSurveyRequest.getQuestions());
         surveyRepository.save(survey);
+
     }
-
-
-
-
+    
 }
