@@ -36,10 +36,6 @@ public class SurveyController {
             consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public void addSurvey ( AddSurveyRequest addSurveyRequest){
-
-
-
-
         Survey survey = new Survey();
         survey.setTitle(addSurveyRequest.getTitle());
         surveyRepository.save(survey);
