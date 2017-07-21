@@ -1,6 +1,7 @@
 package pl.lawniczek.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,8 +32,13 @@ public class SurveyController {
         return surveyRepository.findAll();
     }
 
-    @RequestMapping(method = RequestMethod.POST)
-    public void addSurvey (@RequestBody AddSurveyRequest addSurveyRequest){
+    @RequestMapping(method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public void addSurvey ( AddSurveyRequest addSurveyRequest){
+
+
+
 
         Survey survey = new Survey();
         survey.setName(addSurveyRequest.getName());
