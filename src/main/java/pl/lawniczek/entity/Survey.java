@@ -1,20 +1,23 @@
 package pl.lawniczek.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by elawpio on 2017-07-20.
  */
 @Entity
+@Table(name = "SURVEY")
 public class Survey {
 
     @Id
     @GeneratedValue
     private long id;
 
-    private String name;
+    private String title;
+
+    @OneToMany(mappedBy = "survey")
+    private long questionId;
+
 
     public long getId() {
         return id;
@@ -24,14 +27,28 @@ public class Survey {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String name) {
+        this.title = name;
     }
 
+    public long getQuestionId() {
+        return questionId;
+    }
 
+    public void setQuestionId(long questionId) {
+        this.questionId = questionId;
+    }
 
+    @Override
+    public String toString() {
+        return "Survey{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", questionId=" + questionId +
+                '}';
+    }
 }
