@@ -1,6 +1,8 @@
 package pl.lawniczek.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by elawpio on 2017-07-20.
@@ -15,8 +17,8 @@ public class Survey {
 
     private String title;
 
-    @OneToMany(mappedBy = "survey")
-    private long questionId;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "survey")
+    private List<Question> questions = new ArrayList<>();
 
 
     public long getId() {
@@ -35,12 +37,12 @@ public class Survey {
         this.title = name;
     }
 
-    public long getQuestionId() {
-        return questionId;
+    public List<Question> getQuestions() {
+        return questions;
     }
 
-    public void setQuestionId(long questionId) {
-        this.questionId = questionId;
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
     }
 
     @Override
@@ -48,7 +50,7 @@ public class Survey {
         return "Survey{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", questionId=" + questionId +
+                ", questionId=" + questions +
                 '}';
     }
 }

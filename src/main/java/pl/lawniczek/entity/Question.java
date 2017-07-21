@@ -1,6 +1,8 @@
 package pl.lawniczek.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by elawpio on 2017-07-21.
@@ -13,10 +15,30 @@ public class Question {
     @GeneratedValue
     private long id;
 
+    @ManyToOne
+    private Survey survey;
+
     private String questionDesc;
 
-    @OneToMany(mappedBy = "question")
-    private long answerId;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
+    private List<Answer> answers = new ArrayList<>();
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
+
+    public Survey getSurvey() {
+
+        return survey;
+    }
+
+    public void setSurvey(Survey survey) {
+        this.survey = survey;
+    }
 
     public long getId() {
 
@@ -28,13 +50,6 @@ public class Question {
     }
 
 
-    public long getAnswerId() {
-        return answerId;
-    }
-
-    public void setAnswerId(long answerId) {
-        this.answerId = answerId;
-    }
 
     public String getQuestionDesc() {
 
@@ -52,7 +67,7 @@ public class Question {
         return "Question{" +
                 "id=" + id +
                 ", questionDesc='" + questionDesc + '\'' +
-                ", answerId=" + answerId +
+                ", answerId=" + answers +
                 '}';
     }
 }
