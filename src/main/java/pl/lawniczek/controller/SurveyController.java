@@ -41,7 +41,7 @@ public class SurveyController {
 
 
         Survey survey = new Survey();
-        survey.setTitle(addSurveyRequest.getName());
+        survey.setTitle(addSurveyRequest.getTitle());
         surveyRepository.save(survey);
     }
 
