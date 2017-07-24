@@ -20,6 +20,17 @@ public class Answer {
     @ManyToOne
     private Question question;
 
+    private String answerDesc;
+
+
+    public String getAnswerDesc() {
+        return answerDesc;
+    }
+
+    public void setAnswerDesc(String answerDesc) {
+        this.answerDesc = answerDesc;
+    }
+
     public long getId() {
         return id;
     }
@@ -41,7 +52,7 @@ public class Answer {
         return "Answer{" +
                 "id=" + id +
                 ", question=" + question +
+                ", answerDesc='" + answerDesc + '\'' +
                 '}';
     }
-
 }

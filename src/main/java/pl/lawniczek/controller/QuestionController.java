@@ -33,7 +33,7 @@ public class QuestionController {
     @RequestMapping(method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public void addQuestion(@Valid AddQuestionRequest addQuestionRequest){
+    public void addQuestion(AddQuestionRequest addQuestionRequest){
         Question question = new Question();
 
         question.setSurvey(addQuestionRequest.getSurvey());
