@@ -37,6 +37,7 @@ public class QuestionController {
         Question question = new Question();
 
         question.setSurvey(addQuestionRequest.getSurvey());
+        question.setQuestionDesc(addQuestionRequest.getQuestionDesc());
         questionRepository.save(question);
     }
 

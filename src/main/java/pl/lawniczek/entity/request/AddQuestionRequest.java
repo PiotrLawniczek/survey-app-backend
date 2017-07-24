@@ -7,7 +7,7 @@ import pl.lawniczek.entity.Survey;
  */
 public class AddQuestionRequest {
 
-    private String question;
+    private String questionDesc;
 
     private Survey survey;
 
@@ -19,11 +19,11 @@ public class AddQuestionRequest {
         this.survey = survey;
     }
 
-    public String getQuestion() {
-        return question;
+    public String getQuestionDesc() {
+        return questionDesc;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setQuestionDesc(String questionDesc) {
+        this.questionDesc = questionDesc;
     }
 }
