@@ -1,6 +1,7 @@
 package pl.lawniczek.auth.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by elawpio on 2017-08-29.
