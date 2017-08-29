@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.lawniczek.auth.entity.Role;
 import pl.lawniczek.auth.entity.User;
@@ -15,6 +16,7 @@ import java.util.Set;
 /**
  * Created by elawpio on 2017-08-29.
  */
+@Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
